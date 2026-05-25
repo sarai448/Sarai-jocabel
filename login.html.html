@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Login basico</title>
+
+	<style>
+		/*
+		    ESTILO GENERAL DE LA PAGINA:
+		    Aqui se cambia el color del fondo, el tipo de letra
+		    y la posicion del contenido.
+        */
+        body {
+        	background-color: blueviolet;
+        	font-family: Arial, sans-serif;
+        	text-align: center;
+        }
+
+        /*
+            CAJA DEL LOGIN:
+            Esta parte crea el cuadro donde estara el formulario.
+        */
+        .caja-login {
+        	background-color: white;
+        	width: 300px;
+        	margin: 100px auto;
+        	padding: 25 px;
+        	border: 2px solid black;
+        	border-radius: 10px;
+        }
+
+        /*
+            CAMPOS DE TEXTO:
+            Aqui se modifica el tamaño de los campos usuario y contraseña.
+        */
+        input {
+        	width: 90%;
+        	padding: 8px;
+        	margin: 8px;
+        }
+
+        /*
+            BOTON:
+            Aqui se modifica el diseño del boton ingresar.
+        */
+        button {
+        	background-color: seagreen;
+        	color: white;
+        	padding: 10px;
+        	width: 95%;
+        	border: none;
+        	cursor: pointer;
+        }
+
+        /*
+            MENSAJE:
+            Aqui aparecera si el usuario es correcto o incorrecto.
+        */
+        #mensaje {
+        	font-weight: bold;
+        	margin-top: 15px;
+        }
+    </style>
+</head>
+
+<body>
+
+	<!--
+	    TITULO PRINCIPAL:
+	    Puedes cambiar este texto por el nombre de tu negocio ficticio.
+	-->
+	<h1>Login Libreria la Esquina</h1>
+
+	<!--
+	    CAJA PRINCIPAL:
+	    Aqui estara el formulario para ingresar usuario y contraseña.
+	-->
+	<div class="caja-login">
+
+		<h2>Iniciar sesion</h2>
+
+		<!--
+		    CAMPO USUARIO:
+		    El usuario escribira aqui su nombre de usuario.
+		    El id="usuario" sirve para que JavaScript pueda leer este dato.
+		-->
+		<input type="text" id="usuario" placeholder="Escribe tu usuario">
+
+		<br>
+
+		<!--
+		    CAMPO CONTRASEÑA:
+		    type="password" oculta lo que se escribe.
+		    El id="contraseña" sirve para que JavaScript pueda leer este dato.
+		-->
+		<input type="password" id="contraseña" placeholder="Escribe tu contraseña">
+
+		<br>
+
+		<!--
+		    BOTON:
+		    Cuando se presiona, ejecuta la funcion validarLogin().
+		-->
+		<button onclick="validarLogin()">Ingresar</button>
+
+		<!--
+		    MENSAJE:
+		    Aqui aparecera el resultado:
+		    Usuario correcto o Vuelve a intentar.
+		-->
+		<p id="mensaje"></p>
+
+	</div>
+
+	<script>
+		/*
+		    FUNCION VALIDAR LOGIN:
+		    Esta funcion revisa si el usuario y la contraseña
+		    son correctos.
+		*/
+		function validarLogin() {
+
+            /*
+                OBTENER DATOS:
+                Aqu JavaScript toma lo que el estudiante escribio
+                en los campos usuario y contraseña.
+            */
+            let usuario = document.getElementsById("usuario").value;
+            let contraseña = document.getElementsById("contraseña").value;
+
+            /*
+                DATOS CORRECTOS:
+                Aqui se define cual es el usuario correcto
+                y cual es la contraseña correcta.
+            */
+            let usuarioCorrecto = "Ventas";
+            let contraseñaCorrecta = "abcd";
+
+            /*
+                CONDICION:
+                Si el usuario y la contraseña son correctos,
+                se muestra el mensaje "Usuario correcto".
+                Si no son correctos, se muestra "Vuelve a intentar".
+            */
+            if (usuario == usuarioCorrecto && contraseña == contraseñaCorrecta) {
+            	document.getElementsById("mensaje").innerHTML = "Usuario correcto";
+            	document.getElementsById("mensaje").style.color = "green";
+            } else {
+            	document.getElementsById("mensaje").innerHTML = "Vuelve a intentar";
+            	document.getElementsById("mensaje").style.color = "red";
+            }
+		}
+    </script>
+
+</body>
+</html>
